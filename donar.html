@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" class="icon">  
+    <link rel="icon" href="img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style/style_ayuda.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <title>Salvando Huellas</title>
+</head>
+<body>
+    <header class="cabeza">
+        <nav>
+            <div class="nav-brand">
+                <img src="sdsa.png" alt="Logo Designious" width="120" height="120">
+                <h1 class="titulo">Salva Huellas</h1>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#acerca-lansat">Ayudanos</a></li>
+                <li><a href="index.html#servicios">Acerca</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="donar">
+            <form id="landsat-form">
+                
+                <img class="imagenNasa" src="logoo.png" alt="NASA Icon" width="200" height="200">
+                <h2>Formulario de Donación</h2>
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="cantidad">Cantidad a donar (en pesos):</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="frecuencia">Frecuencia de donación:</label>
+                    <select id="frecuencia" name="frecuencia">
+                        <option value="unica">Donación única</option>
+                        <option value="mensual">Donación mensual</option>
+                        <option value="anual">Donación anual</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comentario">Comentario (opcional):</label>
+                    <textarea id="comentario" name="comentario" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn">Donar</button>
+            </form>
+            <script>
+                document.getElementById('donationForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Obtener los valores del formulario
+                    const nombre = document.getElementById('nombre').value;
+                    const email = document.getElementById('email').value;
+                    const cantidad = document.getElementById('cantidad').value;
+                    const frecuencia = document.getElementById('frecuencia').value;
+                    const comentario = document.getElementById('comentario').value;
+        
+                    // Validación básica
+                    if (!nombre || !email || !cantidad) {
+                        alert('Por favor, complete todos los campos requeridos.');
+                        return;
+                    }
+        
+                    // Aquí normalmente enviarías los datos a un servidor
+                    // Por ahora, solo mostraremos un mensaje de confirmación
+                    alert(`¡Gracias por tu donación, ${nombre}!
+                        Detalles de la donación:
+                        - Cantidad: $${cantidad}
+                        - Frecuencia: ${frecuencia}
+                        - Email: ${email}
+                        - Comentario: ${comentario || 'No proporcionado'}
+                        
+                        Tu generosidad es muy apreciada.`);
+        
+                    // Limpiar el formulario
+                    this.reset();
+                });
+            </script>
+            
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logos">
+                <img src="logo_logo.png.png" alt="Logo Designious" width="100" height="100">
+            </div>
+            <p>&copy; 2026 Salva Huellas. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                <a href="#" class="social-icon" aria-label="Twitter">TW</a>
+                <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">LI</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

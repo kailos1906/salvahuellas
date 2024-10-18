@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" class="icon">  
+    <link rel="icon" href="img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style/style_reporte.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <title>Salvando Huellas</title>
+</head>
+<body>
+    <header class="cabeza">
+        <nav>
+            <div class="nav-brand">
+                <img src="sdsa.png" alt="Logo Designious" width="120" height="120">
+                <h1 class="titulo">Salva Huellas</h1>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#acerca-lansat">Ayudanos</a></li>
+                <li><a href="index.html#servicios">Acerca</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content-container">
+            <form id="landsat-form">
+                
+                <img class="imagenNasa" src="logoo.png" alt="NASA Icon" width="200" height="200">
+                <h2>Registrar Animal Vulnerable</h2>
+                <label for="location">Ubicacion</label>
+                <input type="text" id="location" name="location" required>
+                <div class="form-group">
+                    <label for="tipoVulnerabilidad">Tipo de Vulnerabilidad:</label>
+                    <select id="tipoVulnerabilidad" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Abandono">Abandono</option>
+                        <option value="Enfermedad">Enfermedad</option>
+                        <option value="Maltrato">Maltrato</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tipoAyuda">Tipo de Ayuda Requerida:</label>
+                    <select id="tipoAyuda" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Alimentos">Alimentos</option>
+                        <option value="Adopción">Adopción</option>
+                        <option value="Hogar de Paso">Hogar de Paso</option>
+                    </select>
+                </div>
+                <label for="cloud-cover">Tipo de animal:</label>
+                <input type="text" id="Tipo_Animal" name="animal" required>
+
+                <button type="submit">Enviar Reporte</button>
+            </form>
+
+            <div id="map"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logos">
+                <img src="logo_logo.png.png" alt="Logo Designious" width="100" height="100">
+            </div>
+            <p>&copy; 2026 Salva Huellas. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                <a href="#" class="social-icon" aria-label="Twitter">TW</a>
+                <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">LI</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        var map = L.map('map').setView([2.4448, -76.6147], 15);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; <a href="https://www.esri.com/en-us/home">Esri</a> & contributors',
+            maxZoom: 18
+        }).addTo(map);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; <a href="https://www.esri.com/en-us/home">Esri</a> & contributors',
+            maxZoom: 18
+        }).addTo(map);
+    </script>
+</body>
+</html>
